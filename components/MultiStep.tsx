@@ -1,4 +1,5 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 
 type Step = {
     name: string;
@@ -6,7 +7,7 @@ type Step = {
     status: 'complete' | 'current' | 'upcoming';
 };
 
-const steps: Step[] = [
+const initialSteps: Step[] = [
     {
         name: 'Washing machine repair, Dishwasher',
         description: '121 Rue Manin, 75019 Paris, France',
@@ -22,25 +23,64 @@ const steps: Step[] = [
         description: 'Saturday May 4, Between 11 a.m. and 4 p.m.',
         status: 'upcoming',
     },
-    // ... add more steps as needed
+    // Add more steps as needed
 ];
 
 const MultiStepper: React.FC = () => {
+    const [steps, setSteps] = useState<Step[]>(initialSteps);
+    const [currentStepIndex, setCurrentStepIndex] = useState(() => {
+        return steps.findIndex(step => step.status === 'current');
+    });
+
+    const handleNext = () => {
+        if (currentStepIndex < steps.length - 1) {
+            const newSteps = steps.map((step, index) => {
+                if (index === currentStepIndex) {
+                    return { ...step, status: 'complete' as 'complete' }; // Explicitly setting the type
+                } else if (index === currentStepIndex + 1) {
+                    return { ...step, status: 'current' as 'current' }; // Explicitly setting the type
+                }
+                return step;
+            });
+            setSteps(newSteps);
+            setCurrentStepIndex(currentStepIndex + 1);
+        }
+    };
+
+    const handlePrev = () => {
+        if (currentStepIndex > 0) {
+            const newSteps = steps.map((step, index) => {
+                if (index === currentStepIndex) {
+                    return { ...step, status: 'upcoming' as 'upcoming' }; // Explicitly setting the type
+                } else if (index === currentStepIndex - 1) {
+                    return { ...step, status: 'current' as 'current' }; // Explicitly setting the type
+                }
+                return step;
+            });
+
+            setSteps(newSteps);
+            setCurrentStepIndex(currentStepIndex - 1);
+        }
+    };
+
+    console.log({ currentStepIndex })
     return (
-        <div className="bg-white p-6 rounded-md shadow-lg w-full max-w-sm">
-            <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold text-gray-700">Plan your repair</h2>
-                <span className="text-sm font-medium text-indigo-600">2nd step</span>
+        <div className="bg-white p-0 rounded-lg shadow-lg w-full max-w-sm">
+            <div className="flex justify-between h-20 items-center mb-6 bg-green-950">
+                <h2 className="text-xl font-semibold text-white">Plan your repair</h2>
+                <span className="text-sm font-medium text-indigo-600">{currentStepIndex+1} step</span>
             </div>
+            
+            <div className="bg-white p-6  w-full max-w-sm">
 
             <ol className="relative border-l-2 border-gray-200">
                 {steps.map((step, index) => (
                     <li key={index} className={`mb-10 ml-4 pl-4 ${index === 0 ? "pt-2" : ""} ${index === steps.length - 1 ? "pb-2" : ""}`}>
                         <div
-                            className={`absolute w-4 h-4 rounded-full -left-2.5 border-2 ${step.status === 'complete'
-                                    ? 'bg-green-500 border-green-500'
+                            className={`absolute w-6 h-6 rounded-full -left-3.5 border-2 ${step.status === 'complete'
+                                ? 'bg-[#1A8E96] border-[#1A8E96]'
                                     : step.status === 'current'
-                                        ? 'bg-indigo-600 border-indigo-600'
+                                        ? 'bg-gray-400 border-gray-400'
                                         : 'bg-white border-gray-300'
                                 } flex items-center justify-center`}
                         >
@@ -52,19 +92,18 @@ const MultiStepper: React.FC = () => {
                         </div>
                         <div className="flex justify-between">
                             <div>
-                                <h3 className={`text-lg font-semibold ${step.status === 'complete' ? 'text-green-500' : 'text-gray-900'}`}>
+                                <h3 className={`text-lg font-semibold text-[#1A8E96]`}>
                                     {step.name}
                                 </h3>
-                                <p className={`text-sm ${step.status === 'current' ? 'text-indigo-600' : 'text-gray-500'}`}>
+                                <p className={`text-sm text-gray-500'}`}>
                                     {step.description}
                                 </p>
                             </div>
-                            {step.status === 'current' && (
+                            {/* {step.status === 'current' && (
                                 <span className="flex h-3 w-3">
-                                    {/* <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span> */}
                                     <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
                                 </span>
-                            )}
+                            )} */}
                         </div>
                     </li>
                 ))}
@@ -93,6 +132,17 @@ const MultiStepper: React.FC = () => {
                     <span className="text-lg font-semibold">Total</span>
                     <span className="text-lg font-semibold">100.00€</span>
                 </div>
+            </div>
+
+            <div className="flex justify-between">
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={handlePrev} disabled={currentStepIndex <= 0}>
+                    Prev
+                </button>
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" onClick={handleNext} disabled={currentStepIndex >= steps.length - 1}>
+                    Next
+                </button>
+            </div>
+
             </div>
         </div>
     );
