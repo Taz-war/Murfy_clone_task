@@ -54,7 +54,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
     };
 
     return (
-        <div className="fixed top-16 w-72">
+        <div className="w-full">
             <Combobox value={selected} onChange={setSelected}>
                 <div className="relative mt-1">
                     <div className={`relative w-full cursor-default overflow-hidden text-left border border-gray-300 shadow-md focus-within:border-gray-300 focus-within:ring-1 focus-within:ring-gray-300 ${props.borderRadius === '50%' ? "rounded-full" : "rounded-lg"}`}>
