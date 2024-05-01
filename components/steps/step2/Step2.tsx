@@ -1,10 +1,11 @@
 import React from 'react'
-import Button from '../atoms/Button'
-import CustomListBox from '../atoms/CustomListBox'
+import Button from '../../atoms/Button'
+import CustomListBox from '../../atoms/CustomListBox'
+import SubStep1 from './subSteps/SubStep1'
 
 const sampleData = [
   {
-    id:1,
+    id: 1,
     problemName: "Nothing lights up"
   },
   {
@@ -41,10 +42,10 @@ const Step2 = () => {
   return (
     <div className=' bg-[#F7F8FC] p-6 mt-5 rounded-xl'>
       <h1 className=' text-2xl mb-3 text-[#1A8E96] font-semibold'>What is the nature of your breakdown?</h1>
-      {sampleData.map((problem,index)=>(
+      {/* {sampleData.map((problem, index) => (
         <Button key={problem.id}>{problem.problemName}</Button>
-      ))}
-      <CustomListBox />
+      ))} */}
+      <SubStep1 />
     </div>
   )
 }

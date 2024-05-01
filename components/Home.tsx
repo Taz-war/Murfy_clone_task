@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './atoms/Button'
 import MultiStepper from './MultiStep'
-import Step2 from './steps/Step2'
+import Step2 from './steps/step2/Step2'
 
 const HomeContainer = () => {
   return (
