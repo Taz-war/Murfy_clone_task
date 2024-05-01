@@ -8,6 +8,7 @@ import HomeContainer from "@/components/Home";
 import CustomSelect from "@/components/Example";
 import CustomAutoComplete from "@/components/atoms/CustomAutoComplete";
 import CustomListBox from "@/components/atoms/CustomListBox";
+import Step1 from "@/components/steps/step1/Step1";
 const options = [
   { id: 1, label: "Apple" },
   { id: 2, label: "Samsung" },
@@ -21,8 +22,9 @@ export default function Home() {
       {/* <CustomSelect options={options} placeholder="Device brand" /> */}
       {/* <MultiStepper />
       <Step2 /> */}
-      <CustomAutoComplete />
-      <CustomListBox />
+      {/* <CustomAutoComplete />
+      <CustomListBox /> */}
+      <Step1 />
       {/* <HomeContainer/> */}
     </main>
   );
