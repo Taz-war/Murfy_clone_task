@@ -5,7 +5,6 @@ import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon, MapPinIcon } from '@heroicons/react/20/solid';
 import "@/components/atoms/customCss.css";
 
-
 interface Person {
     id: number;
     name: string;
@@ -20,8 +19,14 @@ const people: Person[] = [
     { id: 6, name: 'Hellen Schmidt' },
 ];
 
-export default function CustomAutoComplete({ ...props }) {
-    console.log(props.borderRadius)
+interface CustomAutoCompleteProps {
+    borderRadius?: string;
+    label?: string;
+    type?: "location" | "default";
+}
+
+export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
+    console.log(props.borderRadius); // Debugging output
     const [selected, setSelected] = useState<Person | null>(null);
     const [query, setQuery] = useState<string>('');
     const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -52,9 +57,9 @@ export default function CustomAutoComplete({ ...props }) {
         <div className="fixed top-16 w-72">
             <Combobox value={selected} onChange={setSelected}>
                 <div className="relative mt-1">
-                    <div className={`relative w-full cursor-default ${props.borderRadius === '50%' ? "rounded-full":"rounded-full"} overflow-hidden rounded-lg text-left border  border-gray-300 shadow-md focus-within:border-gray-300 focus-within:ring-1 focus-within:ring-gray-300`}>
+                    <div className={`relative w-full cursor-default overflow-hidden text-left border border-gray-300 shadow-md focus-within:border-gray-300 focus-within:ring-1 focus-within:ring-gray-300 ${props.borderRadius === '50%' ? "rounded-full" : "rounded-lg"}`}>
                         <Combobox.Input
-                            className="w-full py-3 pl-3 pr-10 text-sm rounded-lg leading-5 text-gray-500 focus:outline-none"
+                            className="w-full py-3 pl-3 pr-10 text-sm leading-5 text-gray-500 focus:outline-none"
                             displayValue={(person: Person) => person?.name || ''}
                             onChange={(event) => setQuery(event.target.value)}
                             onFocus={handleFocus}
@@ -75,7 +80,6 @@ export default function CustomAutoComplete({ ...props }) {
                                     className="h-5 w-5 text-gray-500"
                                     aria-hidden="true"
                                 />}
-
                         </Combobox.Button>
                     </div>
                     <Transition
