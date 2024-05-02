@@ -9,6 +9,7 @@ import CustomSelect from "@/components/Example";
 import CustomAutoComplete from "@/components/atoms/CustomAutoComplete";
 import CustomListBox from "@/components/atoms/CustomListBox";
 import Step1 from "@/components/steps/step1/Step1";
+import Step3 from "@/components/steps/step3/Step3";
 const options = [
   { id: 1, label: "Apple" },
   { id: 2, label: "Samsung" },
@@ -25,6 +26,7 @@ export default function Home() {
       {/* <CustomAutoComplete />
       <CustomListBox /> */}
       {/* <Step1 /> */}
+      {/* <Step3 /> */}
       <HomeContainer/>
     </main>
   );

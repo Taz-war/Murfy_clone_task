@@ -75,13 +75,13 @@ const MultiStepper: React.FC = () => {
 
     console.log({ currentStepIndex })
     return (
-        <div className="bg-white p-0 rounded-[20px] shadow-2xl mt-5 w-full max-w-sm overflow-hidden">
-            <div className="flex justify-between  p-5 h-16 bg-[#005646]">
-                <h2 className="text-xl font-semibold text-white">Plan your repair</h2>
-                <span className="text-lg font-semibold text-green-300">{currentStepIndex+1} step</span>
+        <div className=" fixed top-[0.38rem] bg-white p-0 rounded-[15px]  shadow-2xl mt-5 w-full max-w-sm overflow-hidden">
+            <div className="flex justify-between  p-4 h-14 bg-[#005646]">
+                <h2 className="text-lg font-semibold text-white">Plan your repair</h2>
+                <span className="text-lg font-semibold text-[#A4E7DB]">{currentStepIndex+1} step</span>
             </div>
             
-           <div className=' p-6'>
+           <div className=' p-10'>
 
             <ol className="relative border-l-2 border-gray-200">
                 {steps.map((step, index) => (
@@ -111,7 +111,7 @@ const MultiStepper: React.FC = () => {
                         </div>
                         <div className="flex justify-between">
                             <div>
-                                <h3 className={`text-lg font-semibold text-[#1A8E96]`}>
+                                <h3 className={`text-md font-semibold text-[#1A8E96]`}>
                                     {step.name}
                                 </h3>
                                 <p className={`text-sm text-gray-500'}`}>
