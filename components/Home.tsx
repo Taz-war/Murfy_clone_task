@@ -5,6 +5,7 @@ import Step2 from './steps/step2/Step2'
 import SubStep1 from './steps/step2/subSteps/SubStep1'
 import SubStep2 from './steps/step2/subSteps/SubStep2'
 import Step3 from './steps/step3/Step3'
+import Step4 from './steps/step4/Step4'
 
 const HomeContainer = () => {
   return (
@@ -13,7 +14,8 @@ const HomeContainer = () => {
         {/* <Step2 /> */}
         {/* <SubStep1 /> */}
         {/* <SubStep2 /> */}
-        <Step3 ></Step3>
+        {/* <Step3 ></Step3> */}
+        <Step4 />
       </div>
       <div className=' col-span-4'>
         <MultiStepper />
