@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../../atoms/Button'
-import CustomListBox from '../../atoms/CustomListBox'
+import CustomListBox from '../../atoms/CustomInput'
 import SubStep1 from './subSteps/SubStep1'
 
 const sampleData = [

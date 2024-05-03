@@ -59,7 +59,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
                 <div className="relative mt-1">
                     <div className={`relative w-full cursor-default overflow-hidden text-left border border-gray-300 shadow-md focus-within:border-gray-300 focus-within:ring-1 focus-within:ring-gray-300 ${props.borderRadius === '50%' ? "rounded-full" : "rounded-lg"}`}>
                         <Combobox.Input
-                            className="w-full py-3 pl-3 pr-10 text-sm leading-5 text-gray-500 focus:outline-none"
+                            className="w-full py-3 pl-3 pr-10 text-sm leading-5 h-166 text-gray-500 focus:outline-none"
                             displayValue={(person: Person) => person?.name || ''}
                             onChange={(event) => setQuery(event.target.value)}
                             onFocus={handleFocus}

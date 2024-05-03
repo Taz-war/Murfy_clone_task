@@ -7,7 +7,7 @@ import Step2 from "@/components/steps/step2/Step2";
 import HomeContainer from "@/components/Home";
 import CustomSelect from "@/components/Example";
 import CustomAutoComplete from "@/components/atoms/CustomAutoComplete";
-import CustomListBox from "@/components/atoms/CustomListBox";
+import CustomListBox from "@/components/atoms/CustomInput";
 import Step1 from "@/components/steps/step1/Step1";
 import Step3 from "@/components/steps/step3/Step3";
 const options = [
@@ -27,7 +27,7 @@ export default function Home() {
       <CustomListBox /> */}
       {/* <Step1 /> */}
       {/* <Step3 /> */}
-      <HomeContainer/>
+      <HomeContainer />
     </main>
   );
 }
