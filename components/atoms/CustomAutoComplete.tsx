@@ -70,7 +70,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
             }`}
           >
             <Combobox.Input
-              className="w-full py-3 pl-3 pr-10 text-sm leading-5 h-16 text-gray-500 focus:outline-none"
+              className="w-full py-3 pl-3 pr-10 text-sm leading-normal h-16 text-gray-800 font-medium focus:outline-none"
               displayValue={(person: Person) => person?.name || ""}
               onChange={(event) => setQuery(event.target.value)}
               onFocus={handleFocus}
@@ -80,9 +80,9 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
             />
             <label
               htmlFor="combobox-input"
-              className={`absolute left-3 transition-all duration-200 ease-in-out text-sm pointer-events-none ${
+              className={`absolute left-3 transition-all duration-100 ease-in text-sm pointer-events-none ${
                 isFocused || query
-                  ? "top-0 text-gray-400 text-xs"
+                  ? "top-[20%] text-gray-400"
                   : "top-1/2 -translate-y-1/2 text-gray-400"
               }`}
             >
