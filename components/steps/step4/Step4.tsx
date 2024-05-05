@@ -33,7 +33,7 @@ const Step4 = () => {
         <div className=" col-span-12">
           <CustomInput label="Address" />
         </div>
-        <div className=" col-span-12">
+        <div className="col-span-12">
           <CustomInput label="Access Information" />
           <p className="text-gray-400 ml-2 text-sm">
             Digicode, intercom, building, floor, etc.
