@@ -63,31 +63,24 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
   return (
     <div className="w-full">
       <Combobox value={selected} onChange={setSelected}>
-        <div className="relative float-label-input m-0">
-          <div
-            className={`relative w-full cursor-default overflow-hidden text-left border border-gray-300 focus-within:border-gray-300 focus-within:ring-1 focus-within:ring-gray-300 ${
-              props.borderRadius === "50%" ? "rounded-full" : "rounded-lg"
-            }`}
-          >
+        <div className="relative">
+          <div className="relative float-label-input">
             <Combobox.Input
-              className="w-full py-3 pl-3 pr-10 text-sm leading-normal h-16 text-gray-800 font-medium focus:outline-none"
+              className="block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-xl py-2 h-16 px-3 appearance-none leading-normal focus:border-2 focus:border-[#005646]"
               displayValue={(person: Person) => person?.name || ""}
               onChange={(event) => setQuery(event.target.value)}
               onFocus={handleFocus}
               onBlur={handleBlur}
-              placeholder={!isFocused && !query ? props.label : ""}
+              placeholder={""}
               ref={inputRef}
             />
             <label
-              htmlFor="combobox-input"
-              className={`absolute left-3 transition-all duration-100 ease-in text-sm pointer-events-none ${
-                isFocused || query
-                  ? "top-[20%] text-gray-400"
-                  : "top-1/2 -translate-y-1/2 text-gray-400"
-              }`}
+              htmlFor="name"
+              className="absolute left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker"
             >
               {props.label}
             </label>
+
             <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
               {props.type === "location" ? (
                 <MapPinIcon

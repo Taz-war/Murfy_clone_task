@@ -18,28 +18,20 @@ const CustomInput: React.FC<CustomInputProps> = ({ label }) => {
     setIsFocused(false);
   };
   return (
-    <>
-      <div className="relative float-label-input m-0">
-        <input
-          type="text"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          id="name"
-          placeholder=" "
-          className="ml-0 w-full border bg-white hover:border-gray-100 text-left h-16 text-gray-800 text-lg font-medium px-3 py-3 rounded-[10px] hover:shadow-md focus:outline-none focus:shadow-outline  border-gray-300  block appearance-none leading-normal focus:border-[#005646]"
-        />
-        <label
-          htmlFor="name"
-          className={`absolute transition-all duration-200 ease-in-out pointer-events-none ${
-            isFocused || query
-              ? "top-4 text-gray-400 left-1 text-sm  -translate-y-1/3 text-md"
-              : "top-1/2 -translate-y-1/2 left-3  text-md text-gray-400"
-          }`}
-        >
-          {label}
-        </label>
-      </div>
-    </>
+    <div className="relative float-label-input">
+      <input
+        type="text"
+        id="name"
+        placeholder=" "
+        className="block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-xl py-2 h-16 px-3 appearance-none leading-normal hover:border-white hover:shadow-lg focus:border-2 focus:border-[#004656]"
+      />
+      <label
+        htmlFor="name"
+        className="absolute left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker"
+      >
+        {label}
+      </label>
+    </div>
   );
 };
 
