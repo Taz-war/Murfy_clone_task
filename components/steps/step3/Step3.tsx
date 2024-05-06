@@ -53,7 +53,7 @@ const Step3: React.FC = () => {
                         {data.slice(visibleIndex, visibleIndex + 3).map((day, index) => (
                             <td key={index} className="px-4 py-2">
                                 {day.slots.map((slot, idx) => (
-                                    <div key={idx} className="my-3 p-2 bg-white rounded-lg border-[2px] border-white hover:border-[#1C8F97] hover:border-[2px] transition-all">{slot}</div>
+                                    <div key={idx} className="my-3 p-2 bg-white rounded-lg border-[2px] border-white hover:font-bold hover:text-sm  hover:border-[#1C8F97] hover:border-[2px] ">{slot}</div>
                                 ))}
                             </td>
                         ))}
