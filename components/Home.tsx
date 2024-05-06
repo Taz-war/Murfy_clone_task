@@ -8,6 +8,7 @@ import SubStep2 from "./steps/step2/subSteps/SubStep2";
 import Step3 from "./steps/step3/Step3";
 import Step4 from "./steps/step4/Step4";
 import Stepper from "./Example";
+import Step5 from "./steps/step5/Step5";
 
 const HomeContainer: React.FC = () => {
   const [showStepper, setShowStepper] = useState<boolean>(true);
@@ -30,8 +31,9 @@ const HomeContainer: React.FC = () => {
         {/* <Step2 /> */}
         {/* <SubStep1 /> */}
         {/* <SubStep2 /> */}
-        {/* <Step3></Step3> */}
-        <Step4 />
+        <Step3></Step3>
+        {/* <Step4 /> */}
+        {/* <Step5 /> */}
       </div>
       {showStepper && (
         <div className="col-span-4">
