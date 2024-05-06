@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.float-label-input label {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.float-label-input:focus-within label,
+.float-label-input input:not(:placeholder-shown) + label {
+  transform: translate(-5%, -2rem) scale(0.85) !important;
+  background: none !important;
+}
