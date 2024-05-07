@@ -92,7 +92,7 @@ const Stepper: React.FC = () => {
     };
 
     return (
-        <div id="multistepper" className=" -mt-[56px] top-[0.38rem] right-0 bg-white p-0 rounded-[15px]  shadow-2xl  w-full max-w-sm overflow-hidden">
+        <div id="multistepper" className=" -mt-[68px] top-[0.38rem] right-0 bg-white p-0 rounded-[15px]  shadow-2xl  w-full max-w-sm overflow-hidden">
             <div className="flex justify-between  p-4 h-14 bg-[#005646]">
                 <h2 className="text-lg font-semibold text-white">Plan your repair</h2>
                 <span className="text-lg font-semibold text-[#A4E7DB]">{currentStepIndex + 1} step</span>
@@ -149,7 +149,7 @@ const Stepper: React.FC = () => {
                         <span>Second package Dishwasher</span>
                         <span>90.00€</span>
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center bg-[#E7F9FE] p-1 rounded-full">
                         <span className="flex items-center">
                             Repair Bonus
                             <svg className="ml-2 w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

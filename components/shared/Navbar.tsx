@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
                 <title>Device Repair Service</title>
                 <link href="/path-to-your/favicon.ico" rel="icon" />
             </Head>
-            <header className="flex justify-between items-center p-6 bg-pink-100">
+            <header className="flex justify-between items-center p-6 bg-pink-100 h-20">
                 <div className="text-green-600">Logo</div> 
                 {!showSteps && (
                     <button

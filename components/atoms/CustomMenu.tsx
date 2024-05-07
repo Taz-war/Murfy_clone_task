@@ -98,15 +98,16 @@ const CustomMenu: React.FC = () => {
     return (
         <Transition
             show={isVisible}
-            enter="ease-out duration-300"
+            enter="ease-in-out duration-[400ms]"
             enterFrom="-translate-y-full"
             enterTo="translate-y-0"
-            leave="ease-in duration-200"
+            leave="ease-in duration-500"
             leaveFrom="translate-y-0"
             leaveTo="-translate-y-full"
-            className={"fixed"}
+            className={`fixed z-50 w-full top-[76px] inset-1 transition-transform ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
         >
-
+            {/* <div
+                className={`fixed inset-0 top-[76px] transition-transform duration-500 z-50 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`} */}
 
             <div className="bg-white h-full p-4 overflow-y-auto z-50">
                 <div className=' max-w-sm'>

@@ -31,9 +31,9 @@ const HomeContainer: React.FC = () => {
         {/* <Step2 /> */}
         {/* <SubStep1 /> */}
         {/* <SubStep2 /> */}
-        <Step3></Step3>
+        {/* <Step3></Step3> */}
         {/* <Step4 /> */}
-        {/* <Step5 /> */}
+        <Step5 />
       </div>
       {showStepper && (
         <div className="col-span-4">
