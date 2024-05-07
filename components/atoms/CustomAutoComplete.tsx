@@ -64,7 +64,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
     <div className="w-full">
       <Combobox value={selected} onChange={setSelected}>
         <div className="relative">
-          <div className="relative float-label-input">
+          <Combobox.Button className="relative float-label-input">
             <Combobox.Input
               className="block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-xl py-2 h-16 px-3 appearance-none leading-normal focus:border-2 focus:border-[#005646]"
               displayValue={(person: Person) => person?.name || ""}
@@ -94,7 +94,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
                 />
               )}
             </Combobox.Button>
-          </div>
+          </Combobox.Button>
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
