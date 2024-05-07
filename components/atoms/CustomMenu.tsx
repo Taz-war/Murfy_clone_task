@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Transition } from '@headlessui/react'
 
 type Step = {
     name: string;
@@ -95,9 +96,18 @@ const CustomMenu: React.FC = () => {
     }
 
     return (
-        <div
-            className={`fixed inset-0 top-[76px] transition-transform duration-500 z-50 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+        <Transition
+            show={isVisible}
+            enter="ease-out duration-300"
+            enterFrom="-translate-y-full"
+            enterTo="translate-y-0"
+            leave="ease-in duration-200"
+            leaveFrom="translate-y-0"
+            leaveTo="-translate-y-full"
+            className={"fixed"}
         >
+
+
             <div className="bg-white h-full p-4 overflow-y-auto z-50">
                 <div className=' max-w-sm'>
                     <div className="p-10">
@@ -213,7 +223,8 @@ const CustomMenu: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+
+        </Transition>
     );
 };
 
