@@ -5,7 +5,7 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/20/solid";
 
-const SubStep2: React.FC = () => {
+const Step5: React.FC = () => {
   return (
     <div className="mx-auto p-6 mt-4 bg-white rounded-lg shadow">
       <h2 className="text-2xl font-bold text-[#005646] mb-5">
@@ -58,7 +58,12 @@ const SubStep2: React.FC = () => {
       <div className="bg-[#E7F9FE] p-4  items-center justify-between rounded-lg shadow">
         <div className="flex items-center w-full">
           {/* Replace "Logo.svg" with your actual logo path */}
-          <img src="/path/to/logo.svg" alt="Logo" className="h-6 mr-3" />
+
+          <img
+            src="https://murfy.fr/rendez-vous-reparateur/qualirepar-logo.png"
+            alt="Logo"
+            className="h-6 mr-3"
+          />
           <span className="text-blue-900 font-bold text-lg">
             <span className=" text-[#00A5D2]">
               Repair bonus applied automatically{" "}
@@ -93,4 +98,4 @@ const SubStep2: React.FC = () => {
   );
 };
 
-export default SubStep2;
+export default Step5;

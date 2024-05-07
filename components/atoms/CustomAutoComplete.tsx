@@ -81,7 +81,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
               {props.label}
             </label>
 
-            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+            <div className="absolute inset-y-0 right-0 flex items-center pr-2">
               {props.type === "location" ? (
                 <MapPinIcon
                   className="h-5 w-5 text-gray-500"
@@ -93,7 +93,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
                   aria-hidden="true"
                 />
               )}
-            </Combobox.Button>
+            </div>
           </Combobox.Button>
           <Transition
             as={Fragment}
