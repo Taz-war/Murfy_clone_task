@@ -15,7 +15,7 @@ const HomeContainer: React.FC = () => {
   return (
     <div className="grid grid-cols-12 gap-4">
       <div className={`col-span-12 md:col-span-7 lg:col-span-8`}>
-        {/* <Step1 /> */}
+        <Step1 />
         <Step2 />
         <SubStep1 />
         <SubStep2 />

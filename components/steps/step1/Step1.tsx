@@ -9,13 +9,13 @@ const Step1 = () => {
           <h1 className=" text-[#005646] text-4xl font-semibold">Repair</h1>
         </div>
         <div className="grid grid-cols-12 gap-4">
-          <div className=" col-span-4">
+          <div className="col-span-4">
             <CustomAutoComplete
               label={"Device to be repair"}
               borderRadius={"50%"}
             />
           </div>
-          <div className=" col-span-4">
+          <div className="col-span-4">
             <CustomAutoComplete
               label={"Enter your address"}
               type={"location"}
