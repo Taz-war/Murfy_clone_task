@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { CheckCircleIcon, ChevronDoubleRightIcon, InformationCircleIcon, CreditCardIcon,GiftIcon } from '@heroicons/react/20/solid';
+import { CheckCircleIcon, ChevronDoubleRightIcon, InformationCircleIcon, CreditCardIcon, GiftIcon } from '@heroicons/react/20/solid';
 // import InputMask from 'react-input-mask';
 import useInputMask from '@/components/hooks/useInputMask';
 import Link from 'next/link';
@@ -75,7 +75,7 @@ const Step5: React.FC = () => {
                     
                 </div> */}
 
-                <div className="bg-[#015546] text-white rounded-xl p-7 shadow-lg w-full max-w-2xl">
+                <div className="bg-[#015546] text-white rounded-xl p-9 shadow-lg w-full max-w-2xl">
                     <h1 className="text-2xl font-semibold text-white mb-3">Pay now</h1>
                     <p className="text-md font-semibold text-white mb-2">
                         Your credit card allows you to confirm the reservation,<span className=' text-[#CBF595]'> no amount will be debited before the end of the appointment</span>
@@ -85,30 +85,30 @@ const Step5: React.FC = () => {
                         <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard" className="w-8 h-8" />
                     </div>
                     <div className="flex items-center mb-4 space-x-2">
-                        <div className="relative flex items-center w-2/3">
+                        <div className="relative flex rounded-lg overflow-hidden p-[10px]  items-center w-full bg-white">
                             <CreditCardIcon className="w-6 h-6 absolute left-3 text-gray-500" />
                             <input
                                 value={cardNumber}
                                 onChange={handleCardNumberChange}
-                                className="w-full pl-10 pr-3 py-2 border-2 rounded-lg text-sm font-medium text-gray-800 border-[#1A8E96] focus:outline-none focus:border-[#005646]"
+                                className="w-full pl-10 pr-3 py-2   text-sm font-medium text-gray-800  focus:outline-none "
                                 placeholder="Numéro de carte"
                             />
-                        <input
-                            value={expiryDate}
-                            onChange={handleExpiryDateChange}
-                            className="w-1/3 px-3 py-2 border-2 rounded-lg text-sm font-medium text-gray-800 border-[#1A8E96] focus:outline-none focus:border-[#005646]"
-                            placeholder="MM/AA"
-                        />
+                            <input
+                                value={expiryDate}
+                                onChange={handleExpiryDateChange}
+                                className="w-1/4 px-3 py-2   text-sm font-medium text-gray-800  focus:outline-none "
+                                placeholder="MM/AA"
+                            />
                             <input
                                 value={cvv}
                                 onChange={handleCvvChange}
-                                className="w-1/3 px-3 py-2 border-2 rounded-lg text-sm font-medium text-gray-800 border-[#1A8E96] focus:outline-none focus:border-[#005646]"
+                                className="w-1/4 px-3 py-2   text-sm font-medium text-gray-800  focus:outline-none "
                                 placeholder="CVV"
                             />
                         </div>
                     </div>
                     <div className="relative mb-4">
-                       
+
                     </div>
                     <p className="text-md font-semibold text-white">
                         <span className=' text-[#CBF595]'>Free cancellation</span> up to 24 hours before the appointment
