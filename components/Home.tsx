@@ -27,7 +27,8 @@ const HomeContainer: React.FC = () => {
   return (
     <div className=" grid grid-cols-12 gap-4 p-3">
       {/* <div className="col-span-12 md:col-span-8"> */}
-      <div className={`col-span-${showStepper ? "8" : "12"}`}>
+      {/* <div className={`col-span-${showStepper ? "8" : "12"}`}> */}
+        <div className="col-span-12 lg:col-span-8">
         {/* <Step2 /> */}
         {/* <SubStep1 /> */}
         {/* <SubStep2 /> */}
@@ -35,15 +36,14 @@ const HomeContainer: React.FC = () => {
         {/* <Step4 /> */}
         <Step5 />
       </div>
-      {showStepper && (
+      {/* {showStepper && (
         <div className="col-span-4">
           <Stepper />
         </div>
-      )}
-      {/* <div className=" hidden md:col-span-4 md:block">
-        <MultiStepper />
+      )} */}
+      <div className="hidden lg:block col-span-4">
         <Stepper />
-      </div> */}
+      </div>
     </div>
   );
 };

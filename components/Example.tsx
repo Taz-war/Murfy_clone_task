@@ -92,7 +92,7 @@ const Stepper: React.FC = () => {
     };
 
     return (
-        <div id="multistepper" className=" -mt-[68px] top-[0.38rem] right-0 bg-white p-0 rounded-[15px]  shadow-2xl  w-full max-w-sm overflow-hidden">
+        <div id="multistepper" className=" -mt-[68px] top-[0.38rem] right-0 bg-white p-0 rounded-[15px]  shadow-2xl  w-full max-w-md overflow-hidden">
             <div className="flex justify-between  p-4 h-14 bg-[#005646]">
                 <h2 className="text-lg font-semibold text-white">Plan your repair</h2>
                 <span className="text-lg font-semibold text-[#A4E7DB]">{currentStepIndex + 1} step</span>
@@ -102,7 +102,7 @@ const Stepper: React.FC = () => {
 
                 <ol className="relative border-l-2 border-gray-200">
                     {steps.map((step, index) => (
-                        <li key={index} className={` ${step.status === "upcoming" ? "mb-3" : "mb-10"} ml-4 pl-4 ${index === 0 ? "pt-2" : ""} ${index === steps.length - 1 ? "pb-2" : ""}`}>
+                        <li key={index} className={` ${step.status === "upcoming" ? "mb-3" : "mb-10"} ml-4 pl-4  ${index === steps.length - 1 ? "pb-2" : ""}`}>
                             <div
                                 className={`absolute w-6 h-6 rounded-full -left-3.5 border-2 ${step.status === 'complete'
                                     ? 'bg-[#1A8E96] border-[#1A8E96]'

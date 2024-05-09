@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
 
     // Custom function to update the visibility of the Steps
     const handleResize = () => {
-        const shouldShow = window.innerWidth >= 950; // Custom screen width (950px as an example)
+        const shouldShow = window.innerWidth >= 1024; // Custom screen width (950px as an example)
         setShowSteps(shouldShow);
     };
 
