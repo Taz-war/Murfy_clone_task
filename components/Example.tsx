@@ -95,7 +95,7 @@ const Stepper: React.FC = () => {
   return (
     <div
       id="multistepper"
-      className=" -mt-[56px] top-[0.38rem] right-0 bg-white p-0 rounded-[15px]  shadow-2xl  w-full max-w-sm overflow-hidden"
+      className=" -mt-[56px] top-[0.38rem] right-0 bg-white p-0 rounded-[15px]  shadow-2xl  overflow-hidden"
     >
       <div className="flex justify-between  p-4 h-14 bg-[#005646]">
         <h2 className="text-lg font-semibold text-white">Plan your repair</h2>
@@ -111,9 +111,7 @@ const Stepper: React.FC = () => {
               key={index}
               className={` ${
                 step.status === "upcoming" ? "mb-3" : "mb-10"
-              } ml-4 pl-4 ${index === 0 ? "pt-2" : ""} ${
-                index === steps.length - 1 ? "pb-2" : ""
-              }`}
+              } ml-4 pl-4`}
             >
               <div
                 className={`absolute w-6 h-6 rounded-full -left-3.5 border-2 ${

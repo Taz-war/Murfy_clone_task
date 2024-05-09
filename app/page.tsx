@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
-import NewHome from "@/components/Home";
-import Example from "@/components/Example";
+// import NewHome from "@/components/Home";
+// import Example from "@/components/Example";
 import MultiStepper from "@/components/MultiStep";
 import Step2 from "@/components/steps/step2/Step2";
 import HomeContainer from "@/components/Home";
-import CustomSelect from "@/components/Example";
+
 import CustomAutoComplete from "@/components/atoms/CustomAutoComplete";
 import CustomListBox from "@/components/atoms/CustomInput";
 import Step1 from "@/components/steps/step1/Step1";
