@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 // import NewHome from "@/components/Home";
 // import Example from "@/components/Example";
@@ -16,7 +15,12 @@ const options = [
   { id: 3, label: "Google" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const resFetchCategories = await fetch(
+    "https://662784dbb625bf088c08a327.mockapi.io/category"
+  );
+  const categories = await resFetchCategories.json();
+  console.log({ categories });
   return (
     <main>
       {/* <NewHome /> */}
@@ -27,7 +31,7 @@ export default function Home() {
       <CustomListBox /> */}
       {/* <Step1 /> */}
       {/* <Step3 /> */}
-      <HomeContainer />
+      <HomeContainer categories={categories} />
     </main>
   );
 }
