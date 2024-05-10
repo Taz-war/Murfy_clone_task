@@ -1,5 +1,5 @@
 import CustomAutoComplete from "@/components/atoms/CustomAutoComplete";
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import {
   useJsApiLoader,
   GoogleMap,
@@ -13,7 +13,12 @@ import {
   FieldErrors,
   UseFormWatch,
 } from "react-hook-form";
-import { SignUpSchemaType } from "@/components/Home";
+import {
+  ResumeContext,
+  ResumeContextType,
+  ServiceSchema,
+  SignUpSchemaType,
+} from "@/components/Home";
 import Menu from "@/components/atoms/Menu";
 
 const Step1 = ({
@@ -25,6 +30,9 @@ const Step1 = ({
   control: Control<SignUpSchemaType>;
   categories: { name: string; id: string }[];
 }) => {
+  const { services, setServices } = useContext(
+    ResumeContext
+  ) as ResumeContextType;
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: "AIzaSyByaA2Kqxo7a3SBqaD97S8B5c41kggfycI",
     libraries: ["places"],
@@ -40,26 +48,36 @@ const Step1 = ({
         </div>
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-4">
-            <CustomAutoComplete
+            {/* <CustomAutoComplete
               label={"Device to be repair"}
               borderRadius={"50%"}
-            />
+            /> */}
             <Controller
-              name={"products"}
+              name={"services"}
               control={control}
               rules={{ required: "This is required field" }}
               render={({ field, fieldState }) => (
                 <>
-                {
-                  
-                }
+                  {}
                   <Menu
                     label="What Would You Like To Ship?"
                     placeholder="What Would You Like To Ship?"
                     options={categories}
                     value={null}
-                    handleSelectedOption={(selectedOption) => {
+                    handleSelectedOption={async (selectedOption) => {
                       console.log({ selectedOption });
+                      const categoryId = selectedOption.id;
+                      const fetchServices = await fetch(
+                        `https://662784dbb625bf088c08a327.mockapi.io/category/${categoryId}/Services`
+                      );
+                      const servicess: ServiceSchema[] =
+                        await fetchServices.json();
+
+                      // setServices(() => ({ [categoryId]: services }));
+                      const updatedServices = services;
+                      updatedServices[categoryId as string] = servicess;
+                      setServices(updatedServices);
+                      console.log({ services });
                       // setValue("vehicle_details.vehicle_type", selectedOption);
                       // clearErrors("vehicle_details.vehicle_type");
                       // otherVehicleYearRef.current?.focus();
