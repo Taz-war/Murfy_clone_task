@@ -42,11 +42,15 @@ export type ServiceSchema = {
 export type ResumeContextType = {
   services: Record<string, ServiceSchema[]>;
   setServices: (arg: Record<string, ServiceSchema[]>) => void;
+  currentState: number;
+  setCurrentState: (arg: number) => void;
 };
 
 export const ResumeContext = createContext<ResumeContextType>({
   services: {},
   setServices: (arg: Record<string, ServiceSchema[]>) => null,
+  currentState: 0,
+  setCurrentState: (arg: number) => null,
 });
 
 const schema = z.object({
@@ -54,14 +58,15 @@ const schema = z.object({
   categoryId: z.string(),
   categoryName: z.string(),
   //service info
-  serviceName: z.string(),
-  serviceId: z.string(),
+  serviceName: z.string().nullable(),
+  serviceId: z.string().nullable(),
 
   //brand
-  brand: z.string().optional(),
+  has_brand: z.boolean().nullable(),
+  brand: z.string().nullable(),
   //price
-  initial_price_ttc: z.number(),
-  is_service_personne: z.boolean(),
+  initial_price_ttc: z.number().nullable(),
+  is_service_personne: z.boolean().nullable(),
 });
 const SignUpSchema = z.object({
   // email: z.string().email(),
@@ -78,7 +83,7 @@ const HomeContainer = ({
   categories: { name: string; id: string }[];
 }) => {
   const [services, setServices] = useState<Record<string, ServiceSchema[]>>({});
-
+  const [currentState, setCurrentState] = useState(0);
   const {
     register,
     handleSubmit,
@@ -93,8 +98,13 @@ const HomeContainer = ({
       value={{
         services,
         setServices,
+        currentState,
+        setCurrentState,
       }}
     >
+      services---{JSON.stringify(watch("services"))}
+      address---{watch("address")}
+      currentState---{currentState}
       <button
         onClick={() => {
           console.log({ categories, services });

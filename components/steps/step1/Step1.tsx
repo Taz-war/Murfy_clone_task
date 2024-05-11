@@ -30,7 +30,7 @@ const Step1 = ({
   control: Control<SignUpSchemaType>;
   categories: { name: string; id: string }[];
 }) => {
-  const { services, setServices } = useContext(
+  const { services, setServices, currentState, setCurrentState } = useContext(
     ResumeContext
   ) as ResumeContextType;
   const { isLoaded } = useJsApiLoader({
@@ -63,7 +63,14 @@ const Step1 = ({
                     label="What Would You Like To Ship?"
                     placeholder="What Would You Like To Ship?"
                     options={categories}
-                    value={null}
+                    value={
+                      watch("services")?.[0]
+                        ? {
+                            id: watch("services")[0].categoryId,
+                            name: watch("services")[0].categoryName,
+                          }
+                        : null
+                    }
                     handleSelectedOption={async (selectedOption) => {
                       console.log({ selectedOption });
                       const categoryId = selectedOption.id;
@@ -78,6 +85,24 @@ const Step1 = ({
                       updatedServices[categoryId as string] = servicess;
                       setServices(updatedServices);
                       console.log({ services });
+
+                      const data = {
+                        //category info
+                        categoryId,
+                        categoryName: selectedOption.name,
+                        //service info
+                        serviceName: null,
+                        serviceId: null,
+
+                        //brand
+                        has_brand: null,
+                        brand: null,
+                        //price
+                        initial_price_ttc: null,
+                        is_service_personne: null,
+                      };
+
+                      field.onChange([data]);
                       // setValue("vehicle_details.vehicle_type", selectedOption);
                       // clearErrors("vehicle_details.vehicle_type");
                       // otherVehicleYearRef.current?.focus();
@@ -162,7 +187,10 @@ const Step1 = ({
           </div>
 
           <div className=" col-span-4">
-            <button className="rounded-full bg-[#D7D7D7] p-3 mt-1 text-sm">
+            <button
+              className="rounded-full bg-[#D7D7D7] p-3 mt-1 text-sm"
+              onClick={() => setCurrentState(1)}
+            >
               Make an appointment
             </button>
           </div>
