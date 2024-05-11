@@ -27,6 +27,7 @@ interface CustomAutoCompleteProps {
   borderRadius?: string;
   label?: string;
   type?: "location" | "default";
+  height?: string
 }
 
 export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
@@ -40,11 +41,11 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
     query === ""
       ? people
       : people.filter((person) =>
-          person.name
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, ""))
-        );
+        person.name
+          .toLowerCase()
+          .replace(/\s+/g, "")
+          .includes(query.toLowerCase().replace(/\s+/g, ""))
+      );
 
   useEffect(() => {
     if (!query && !isFocused && inputRef.current) {
@@ -64,22 +65,24 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
     <div className="w-full">
       <Combobox value={selected} onChange={setSelected}>
         <div className="relative">
-          <Combobox.Button className="relative float-label-input">
+          <Combobox.Button className="relative float-label-input w-full">
             <Combobox.Input
-              className="block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-xl py-2 h-16 px-3 appearance-none leading-normal focus:border-2 focus:border-[#005646]"
+              className={`block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 ${props.borderRadius === 'full' ? "rounded-full" : "rounded-xl"} py-2 ${props.height === "small" ? 'h-10' : "h-16"} px-3  appearance-none leading-normal focus:border-2 focus:border-[#005646]`}
               displayValue={(person: Person) => person?.name || ""}
               onChange={(event) => setQuery(event.target.value)}
               onFocus={handleFocus}
               onBlur={handleBlur}
-              placeholder={""}
+              placeholder={ props.height ==="small"? props.label : ''}
               ref={inputRef}
             />
-            <label
-              htmlFor="name"
-              className="absolute left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker"
-            >
-              {props.label}
-            </label>
+            {props.height != 'small' && (
+              <label
+                htmlFor="name"
+                className="absolute left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker"
+              >
+                {props.label}
+              </label>
+            )}
 
             <div className="absolute inset-y-0 right-0 flex items-center pr-2">
               {props.type === "location" ? (
@@ -102,7 +105,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}
           >
-            <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Combobox.Options className={`absolute z-10 mt-1 ${props.height === "small" ? '-top-[5px]' : "top-none"} max-h-60 w-full overflow-auto rounded-md bg-white ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm`}>
               {filteredPeople.length === 0 && query !== "" ? (
                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                   Nothing found.
@@ -112,8 +115,7 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
                   <Combobox.Option
                     key={person.id}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                        active ? "bg-gray-200 text-black" : "text-gray-900"
+                      `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? "bg-gray-200 text-black" : "text-gray-900"
                       }`
                     }
                     value={person}
@@ -121,9 +123,8 @@ export default function CustomAutoComplete(props: CustomAutoCompleteProps) {
                     {({ selected, active }) => (
                       <>
                         <span
-                          className={`block truncate ${
-                            selected ? "font-medium" : "font-normal"
-                          }`}
+                          className={`block truncate ${selected ? "font-medium" : "font-normal"
+                            }`}
                         >
                           {person.name}
                         </span>

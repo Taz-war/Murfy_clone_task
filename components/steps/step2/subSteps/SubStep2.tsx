@@ -43,14 +43,14 @@ const SubStep2: React.FC = () => {
       </ul>
 
       <div className="flex items-center justify-between max-w-lg mx-auto p-6">
-        <div className="text-gray-700 text-center">
-          <p className="text-lg">Package without bonus</p>
+        <div className="text-[#808080] text-center">
+          <p className="text-lg font-medium">Package without bonus</p>
           <p className="text-3xl font-bold">€ 110</p>
         </div>
-        <ChevronDoubleRightIcon className="w-10 h-10 text-blue-500 mx-4" />{" "}
+        <ChevronDoubleRightIcon className="w-10 h-10 text-[#00A5D2] mx-4" />{" "}
         {/* Arrow icon with styling */}
-        <div className="text-blue-500 text-center">
-          <p className="text-lg">Package with bonus</p>
+        <div className="text-[#00A5D2] text-center">
+          <p className="text-lg font-medium">Package with bonus</p>
           <p className="text-3xl font-bold">€ 60</p>
         </div>
       </div>
