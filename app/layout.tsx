@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
+import { StepperProvider } from "@/Context_api/StepperContext";
+import { initialSteps } from "@/data/InitialData";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <StepperProvider initialSteps={initialSteps}>
         <Navbar />
         <div className="w-full mx-auto 2xl:max-w-[1400px] px-2 min-h-screen">{children}</div>
         <Footer />
+        </StepperProvider>
       </body>
     </html>
   );

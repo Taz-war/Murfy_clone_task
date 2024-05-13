@@ -25,9 +25,9 @@ export default function Home() {
       <Step2 /> */}
       {/* <CustomAutoComplete />
       <CustomListBox /> */}
-      <Step1 />
+      {/* <Step1 /> */}
       {/* <Step3 /> */}
-      {/* <HomeContainer /> */}
+      <HomeContainer />
     </main>
   );
 }

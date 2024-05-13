@@ -3,6 +3,7 @@ import React, { useState, ChangeEvent, FocusEvent } from "react";
 import "@/components/atoms/customCss.css";
 import CustomInput from "@/components/atoms/CustomInput";
 import CustomAutoComplete from "@/components/atoms/CustomAutoComplete";
+import PhoneInput from "@/components/atoms/PhoneInput";
 
 const Step4: React.FC = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -42,8 +43,9 @@ const Step4: React.FC = () => {
             Digicode, intercom, building, floor, etc.
           </p>
         </div>
-        <div className="col-span-2">
-          <CustomAutoComplete label="Indicative" />
+        <div className="col-span-2 my-auto">
+          {/* <CustomAutoComplete label="Indicative" /> */}
+          <PhoneInput />
         </div>
         <div className="col-span-10">
           <CustomInput label="Phone Number" />

@@ -113,20 +113,17 @@ const CustomMenu: React.FC = () => {
               {steps.map((step, index) => (
                 <li
                   key={index}
-                  className={`${
-                    step.status === "upcoming" ? "mb-3" : "mb-10"
-                  } ml-4 pl-4 ${index === 0 ? "pt-2" : ""} ${
-                    index === steps.length - 1 ? "pb-2" : ""
-                  }`}
+                  className={`${step.status === "upcoming" ? "mb-3" : "mb-10"
+                    } ml-4 pl-4 ${index === 0 ? "pt-2" : ""} ${index === steps.length - 1 ? "pb-2" : ""
+                    }`}
                 >
                   <div
-                    className={`absolute w-6 h-6 rounded-full -left-3.5 border-2 ${
-                      step.status === "complete"
+                    className={`absolute w-6 h-6 rounded-full -left-3.5 border-2 ${step.status === "complete"
                         ? "bg-[#1A8E96] border-[#1A8E96]"
                         : step.status === "current"
-                        ? "bg-white border-none"
-                        : "bg-gray-400 border-gray-400"
-                    } flex items-center justify-center`}
+                          ? "bg-white border-none"
+                          : "bg-gray-400 border-gray-400"
+                      } flex items-center justify-center`}
                   >
                     {step.status === "complete" && (
                       <svg

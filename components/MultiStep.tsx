@@ -1,3 +1,4 @@
+import { useStepperContext } from "@/Context_api/StepperContext";
 import React, { useState, useEffect } from "react";
 
 type Step = {
@@ -36,10 +37,11 @@ const initialSteps: Step[] = [
 ];
 
 const Stepper: React.FC = () => {
-    const [steps, setSteps] = useState<Step[]>(initialSteps);
-    const [currentStepIndex, setCurrentStepIndex] = useState(() => {
-        return steps.findIndex((step) => step.status === "current");
-    });
+    const { steps, currentStepIndex, goToNextStep, goToPreviousStep } = useStepperContext();
+    // const [steps, setSteps] = useState<Step[]>(initialSteps);
+    // const [currentStepIndex, setCurrentStepIndex] = useState(() => {
+    //     return steps.findIndex((step) => step.status === "current");
+    // });
 
     //   useEffect(() => {
     //     const handleScroll = () => {
@@ -197,14 +199,22 @@ const Stepper: React.FC = () => {
                     </div>
                 </div>
 
-                {/* <div className="flex justify-between">
-                    <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={handlePrev} disabled={currentStepIndex <= 0}>
+                <div className="flex justify-between">
+                    <button
+                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+                        onClick={goToPreviousStep}
+                        disabled={currentStepIndex <= 0}
+                    >
                         Prev
                     </button>
-                    <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" onClick={handleNext} disabled={currentStepIndex >= steps.length - 1}>
+                    <button
+                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+                        onClick={goToNextStep}
+                        disabled={currentStepIndex >= steps.length - 1}
+                    >
                         Next
                     </button>
-                </div> */}
+                </div>
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ import { RadioGroup } from '@headlessui/react';
 
 // Define the type for each plan
 interface sampleData {
-  id:number;
+  id: number;
   problemName: string;
 }
 
@@ -53,7 +53,7 @@ const Step2 = () => {
 
   return (
     <div className=' bg-[#F7F8FC] p-6 mt-5 rounded-xl'>
-    <h1 className=' text-2xl mb-3 text-[#1A8E96] font-semibold'>What is the nature of your breakdown?</h1>
+      <h1 className=' text-2xl mb-3 text-[#1A8E96] font-semibold'>What is the nature of your breakdown?</h1>
       <RadioGroup value={selected} onChange={setSelected}>
         <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
         <div className="space-y-4">
@@ -78,7 +78,7 @@ const Step2 = () => {
                       </RadioGroup.Label>
                     </div>
                   </div>
-                  
+
                   <div
                     className={classNames(
                       active ? 'border' : 'border',
