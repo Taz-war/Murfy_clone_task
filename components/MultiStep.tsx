@@ -1,98 +1,16 @@
 import { useStepperContext } from "@/Context_api/StepperContext";
 import React, { useState, useEffect } from "react";
 
-type Step = {
+export  type Step = {
     name: string;
     description: string;
     status: "complete" | "current" | "upcoming";
 };
 
-const initialSteps: Step[] = [
-    {
-        name: "Washing machine repair, Dishwasher",
-        description: "121 Rue Manin, 75019 Paris, France",
-        status: "complete",
-    },
-    {
-        name: "Breakdown",
-        description: "Appliance 1 Washing machine, Appliance 2 Dishwasher",
-        status: "current",
-    },
-    {
-        name: "Appointment",
-        description: "Saturday May 4, Between 11 a.m. and 4 p.m.",
-        status: "upcoming",
-    },
-    {
-        name: "Information",
-        description: "",
-        status: "upcoming",
-    },
-    {
-        name: "Validation",
-        description: "",
-        status: "upcoming",
-    },
-    // Add more steps as needed
-];
+
 
 const Stepper: React.FC = () => {
     const { steps, currentStepIndex, goToNextStep, goToPreviousStep } = useStepperContext();
-    // const [steps, setSteps] = useState<Step[]>(initialSteps);
-    // const [currentStepIndex, setCurrentStepIndex] = useState(() => {
-    //     return steps.findIndex((step) => step.status === "current");
-    // });
-
-    //   useEffect(() => {
-    //     const handleScroll = () => {
-    //       const offset = window.scrollY;
-    //       const multistepper = document.getElementById("multistepper");
-    //       if (multistepper) {
-    //         if (offset > 100) {
-    //           // Change 100 to your desired scroll height
-    //           multistepper.style.top = "calc(0.38rem - 24px)";
-    //         } else {
-    //           multistepper.style.top = "calc(0.38rem - 24px)";
-    //         }
-    //       }
-    //     };
-
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => {
-    //       window.removeEventListener("scroll", handleScroll);
-    //     };
-    //   }, []);
-
-    //   const handleNext = () => {
-    //     if (currentStepIndex < steps.length - 1) {
-    //       const newSteps = steps.map((step, index) => {
-    //         if (index === currentStepIndex) {
-    //           return { ...step, status: "complete" as "complete" }; // Explicitly setting the type
-    //         } else if (index === currentStepIndex + 1) {
-    //           return { ...step, status: "current" as "current" }; // Explicitly setting the type
-    //         }
-    //         return step;
-    //       });
-    //       setSteps(newSteps);
-    //       setCurrentStepIndex(currentStepIndex + 1);
-    //     }
-    //   };
-
-    //   const handlePrev = () => {
-    //     if (currentStepIndex > 0) {
-    //       const newSteps = steps.map((step, index) => {
-    //         if (index === currentStepIndex) {
-    //           return { ...step, status: "upcoming" as "upcoming" }; // Explicitly setting the type
-    //         } else if (index === currentStepIndex - 1) {
-    //           return { ...step, status: "current" as "current" }; // Explicitly setting the type
-    //         }
-    //         return step;
-    //       });
-
-    //       setSteps(newSteps);
-    //       setCurrentStepIndex(currentStepIndex - 1);
-    //     }
-    //   };
 
     return (
         <div

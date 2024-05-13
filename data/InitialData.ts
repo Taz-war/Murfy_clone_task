@@ -7,12 +7,12 @@ export const initialSteps: Step[] = [
     {
         name: "Washing machine repair, Dishwasher",
         description: "121 Rue Manin, 75019 Paris, France",
-        status: "complete",
+        status: "current",
     },
     {
         name: "Breakdown",
         description: "Appliance 1 Washing machine, Appliance 2 Dishwasher",
-        status: "current",
+        status: "upcoming",
     },
     {
         name: "Appointment",

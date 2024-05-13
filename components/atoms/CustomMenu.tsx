@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
+import { useStepperContext } from "@/Context_api/StepperContext";
 
 type Step = {
   name: string;
@@ -37,10 +38,11 @@ const initialSteps: Step[] = [
 ];
 
 const CustomMenu: React.FC = () => {
-  const [steps, setSteps] = useState<Step[]>(initialSteps);
-  const [currentStepIndex, setCurrentStepIndex] = useState(() => {
-    return steps.findIndex((step) => step.status === "current");
-  });
+  const { steps, currentStepIndex, goToNextStep, goToPreviousStep } = useStepperContext();
+  // const [steps, setSteps] = useState<Step[]>(initialSteps);
+  // const [currentStepIndex, setCurrentStepIndex] = useState(() => {
+  //   return steps.findIndex((step) => step.status === "current");
+  // });
 
   const [isVisible, setIsVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -53,43 +55,43 @@ const CustomMenu: React.FC = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const closeMenu = () => {
-    // Trigger the slide-up animation
-    setIsVisible(false);
-    // Unmount the component after the animation ends
-    setTimeout(() => setIsMounted(false), 500);
-  };
+  // const closeMenu = () => {
+  //   // Trigger the slide-up animation
+  //   setIsVisible(false);
+  //   // Unmount the component after the animation ends
+  //   setTimeout(() => setIsMounted(false), 500);
+  // };
 
-  const handleNext = () => {
-    if (currentStepIndex < steps.length - 1) {
-      const newSteps = steps.map((step, index) => {
-        if (index === currentStepIndex) {
-          return { ...step, status: "complete" as "complete" }; // Explicitly setting the type
-        } else if (index === currentStepIndex + 1) {
-          return { ...step, status: "current" as "current" }; // Explicitly setting the type
-        }
-        return step;
-      });
-      setSteps(newSteps);
-      setCurrentStepIndex(currentStepIndex + 1);
-    }
-  };
+  // const handleNext = () => {
+  //   if (currentStepIndex < steps.length - 1) {
+  //     const newSteps = steps.map((step, index) => {
+  //       if (index === currentStepIndex) {
+  //         return { ...step, status: "complete" as "complete" }; // Explicitly setting the type
+  //       } else if (index === currentStepIndex + 1) {
+  //         return { ...step, status: "current" as "current" }; // Explicitly setting the type
+  //       }
+  //       return step;
+  //     });
+  //     setSteps(newSteps);
+  //     setCurrentStepIndex(currentStepIndex + 1);
+  //   }
+  // };
 
-  const handlePrev = () => {
-    if (currentStepIndex > 0) {
-      const newSteps = steps.map((step, index) => {
-        if (index === currentStepIndex) {
-          return { ...step, status: "upcoming" as "upcoming" }; // Explicitly setting the type
-        } else if (index === currentStepIndex - 1) {
-          return { ...step, status: "current" as "current" }; // Explicitly setting the type
-        }
-        return step;
-      });
+  // const handlePrev = () => {
+  //   if (currentStepIndex > 0) {
+  //     const newSteps = steps.map((step, index) => {
+  //       if (index === currentStepIndex) {
+  //         return { ...step, status: "upcoming" as "upcoming" }; // Explicitly setting the type
+  //       } else if (index === currentStepIndex - 1) {
+  //         return { ...step, status: "current" as "current" }; // Explicitly setting the type
+  //       }
+  //       return step;
+  //     });
 
-      setSteps(newSteps);
-      setCurrentStepIndex(currentStepIndex - 1);
-    }
-  };
+  //     setSteps(newSteps);
+  //     setCurrentStepIndex(currentStepIndex - 1);
+  //   }
+  // };
 
   if (!isMounted) {
     return null;
@@ -104,7 +106,7 @@ const CustomMenu: React.FC = () => {
       leave="transition-opacity duration-150"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
-      className={"fixed right-0 left-0 bottom-0 z-999999 top-20"}
+      className={"fixed right-0 left-0 bottom-0 z-50 top-20"}
     >
       <div className="bg-white h-full p-4 overflow-y-auto z-50">
         <div className=" max-w-sm">

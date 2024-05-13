@@ -1,11 +1,15 @@
+import { useStepperContext } from "@/Context_api/StepperContext";
 import CustomAutoComplete from "@/components/atoms/CustomAutoComplete";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Step1 = () => {
+  const { steps, currentStepIndex, goToNextStep, goToPreviousStep } = useStepperContext();
+  console.log(goToNextStep)
+  
+
   return (<>
 
-    <div className="grid grid-cols-12 gap-4 p-10">
-      <div className="col-span-12 md:col-span-8">
+      <div className=" p-10">
         <div className="mb-3 text-center p-3">
           <h1 className="text-[#005646] text-4xl font-semibold">Repair</h1>
         </div>
@@ -69,13 +73,19 @@ const Step1 = () => {
 
         </div>
       </div>
-      <div className="col-span-4 hidden md:block"></div>
 
-    </div>
     <div className=" col-span-12 lg:hidden md:block absolute bottom-0 w-full pr-3 mb-3">
-      <button className="rounded-full bg-[#D7D7D7] p-3 mt-1 h-10 w-full text-sm font-bold text-gray-500 hover:bg-gradient-to-r from-[#F6516F] to-[#FF8586] hover:text-white">
+      <button
+        onClick={() => {
+          console.log("Button clicked, attempting to go to next step.");
+          goToNextStep();
+        }}
+        disabled={currentStepIndex >= steps.length - 1}
+        className="rounded-full bg-[#D7D7D7] p-3 mt-1 h-10 w-full text-sm font-bold text-gray-500 hover:bg-gradient-to-r from-[#F6516F] to-[#FF8586] hover:text-white"
+      >
         Make an appointment
       </button>
+
     </div>  </>
   );
 };
