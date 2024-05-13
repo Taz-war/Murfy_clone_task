@@ -9,7 +9,7 @@ const Step1 = () => {
         <div className="mb-3 text-center p-3">
           <h1 className="text-[#005646] text-4xl font-semibold">Repair</h1>
         </div>
-        <div className="grid grid-cols-12 gap-2 place-items-center">
+        <div className="grid grid-cols-12 gap-4 ">
           <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <CustomAutoComplete
               label={"Device to be repair"}
@@ -27,8 +27,8 @@ const Step1 = () => {
             />
           </div>
 
-          <div className="col-span-12 lg:col-span-4 hidden lg:grid  justify-center">
-            <button className="rounded-full bg-[#D7D7D7] p-3 w-full text-sm font-bold text-gray-500 hover:bg-gradient-to-r from-[#F6516F] to-[#FF8586] hover:text-white">
+          <div className="col-span-12 lg:col-span-4 hidden lg:block  justify-center">
+            <button className="rounded-full bg-[#D7D7D7] mt-2 h-10 w-full text-sm font-bold text-gray-500 hover:bg-gradient-to-r from-[#F6516F] to-[#FF8586] hover:text-white">
               Make an appointment
             </button>
           </div>
